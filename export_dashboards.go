@@ -136,6 +136,18 @@ func debungFunc(client *kibana.Client, ymlFile string) error {
 	}
 	for i, r := range results {
 		log.Printf("id=%s, name=%s\n", info.Dashboards[i].ID, info.Dashboards[i].File)
+		println(r)
 	}
 	return nil
+
+	// pattern, err := indexPattern.Generate()
+	// if err != nil {
+	// 	return fmt.Errorf("error generating index pattern: %v", err)
+	// }
+	// err = dashboards.ImportDashboards(ctx, b.Info, paths.Resolve(paths.Home, ""), kibanaConfig, b.Config.Dashboards, nil, results)
+	// if err != nil {
+	// 	return errw.Wrap(err, "Error importing Kibana dashboards")
+	// }
+	// logp.Info("Kibana dashboards successfully loaded.")
+
 }
