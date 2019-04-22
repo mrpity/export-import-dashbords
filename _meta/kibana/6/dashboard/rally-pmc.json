@@ -1,0 +1,1470 @@
+{
+  "objects": [
+    {
+      "attributes": {
+        "description": "",
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": {
+            "filter": [
+              {
+                "$state": {
+                  "store": "appState"
+                },
+                "meta": {
+                  "alias": null,
+                  "disabled": false,
+                  "index": "935aa520-4b57-11e9-9443-f9d28761667b",
+                  "key": "name",
+                  "negate": false,
+                  "params": {
+                    "query": "latency",
+                    "type": "phrase"
+                  },
+                  "type": "phrase",
+                  "value": "latency"
+                },
+                "query": {
+                  "match": {
+                    "name": {
+                      "query": "latency",
+                      "type": "phrase"
+                    }
+                  }
+                }
+              },
+              {
+                "$state": {
+                  "store": "appState"
+                },
+                "meta": {
+                  "alias": null,
+                  "disabled": false,
+                  "index": "935aa520-4b57-11e9-9443-f9d28761667b",
+                  "key": "operation",
+                  "negate": false,
+                  "params": {
+                    "query": "default",
+                    "type": "phrase"
+                  },
+                  "type": "phrase",
+                  "value": "default"
+                },
+                "query": {
+                  "match": {
+                    "operation": {
+                      "query": "default",
+                      "type": "phrase"
+                    }
+                  }
+                }
+              }
+            ],
+            "index": "935aa520-4b57-11e9-9443-f9d28761667b",
+            "query": {
+              "language": "kuery",
+              "query": ""
+            }
+          }
+        },
+        "title": "pmc-default-latency",
+        "uiStateJSON": {},
+        "version": 1,
+        "visState": {
+          "aggs": [
+            {
+              "enabled": true,
+              "id": "2",
+              "params": {
+                "customInterval": "2h",
+                "extended_bounds": {},
+                "field": "trial-timestamp",
+                "interval": "auto",
+                "min_doc_count": 1
+              },
+              "schema": "segment",
+              "type": "date_histogram"
+            },
+            {
+              "enabled": true,
+              "id": "4",
+              "params": {
+                "customLabel": "99th percentile",
+                "field": "value.99_0"
+              },
+              "schema": "metric",
+              "type": "avg"
+            },
+            {
+              "enabled": true,
+              "id": "3",
+              "params": {
+                "customLabel": "90th percentile",
+                "field": "value.90_0"
+              },
+              "schema": "metric",
+              "type": "avg"
+            },
+            {
+              "enabled": true,
+              "id": "1",
+              "params": {
+                "customLabel": "50th percentile",
+                "field": "value.50_0"
+              },
+              "schema": "metric",
+              "type": "avg"
+            }
+          ],
+          "params": {
+            "addLegend": true,
+            "addTimeMarker": false,
+            "addTooltip": true,
+            "categoryAxes": [
+              {
+                "id": "CategoryAxis-1",
+                "labels": {
+                  "filter": true,
+                  "show": true,
+                  "truncate": 100
+                },
+                "position": "bottom",
+                "scale": {
+                  "type": "linear"
+                },
+                "show": true,
+                "style": {},
+                "title": {},
+                "type": "category"
+              }
+            ],
+            "grid": {
+              "categoryLines": true,
+              "style": {
+                "color": "#eee"
+              },
+              "valueAxis": "ValueAxis-1"
+            },
+            "legendPosition": "right",
+            "seriesParams": [
+              {
+                "data": {
+                  "id": "4",
+                  "label": "99th percentile"
+                },
+                "drawLinesBetweenPoints": true,
+                "interpolate": "linear",
+                "mode": "normal",
+                "show": true,
+                "showCircles": true,
+                "type": "area",
+                "valueAxis": "ValueAxis-1"
+              },
+              {
+                "data": {
+                  "id": "3",
+                  "label": "90th percentile"
+                },
+                "drawLinesBetweenPoints": true,
+                "interpolate": "linear",
+                "mode": "normal",
+                "show": true,
+                "showCircles": true,
+                "type": "area",
+                "valueAxis": "ValueAxis-1"
+              },
+              {
+                "data": {
+                  "id": "1",
+                  "label": "50th percentile"
+                },
+                "drawLinesBetweenPoints": true,
+                "interpolate": "linear",
+                "mode": "normal",
+                "show": "true",
+                "showCircles": true,
+                "type": "area",
+                "valueAxis": "ValueAxis-1"
+              }
+            ],
+            "times": [],
+            "type": "area",
+            "valueAxes": [
+              {
+                "id": "ValueAxis-1",
+                "labels": {
+                  "filter": false,
+                  "rotate": 0,
+                  "show": true,
+                  "truncate": 100
+                },
+                "name": "LeftAxis-1",
+                "position": "left",
+                "scale": {
+                  "mode": "normal",
+                  "type": "linear"
+                },
+                "show": true,
+                "style": {},
+                "title": {
+                  "text": "seconds"
+                },
+                "type": "value"
+              }
+            ]
+          },
+          "title": "pmc-default-latency",
+          "type": "area"
+        }
+      },
+      "id": "ef6b9e40-4b5d-11e9-9443-f9d28761667b",
+      "type": "visualization",
+      "updated_at": "2019-03-21T01:37:44.856Z",
+      "version": 7
+    },
+    {
+      "attributes": {
+        "description": "",
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": {
+            "filter": [
+              {
+                "$state": {
+                  "store": "appState"
+                },
+                "meta": {
+                  "alias": null,
+                  "disabled": false,
+                  "index": "935aa520-4b57-11e9-9443-f9d28761667b",
+                  "key": "name",
+                  "negate": false,
+                  "params": {
+                    "query": "latency",
+                    "type": "phrase"
+                  },
+                  "type": "phrase",
+                  "value": "latency"
+                },
+                "query": {
+                  "match": {
+                    "name": {
+                      "query": "latency",
+                      "type": "phrase"
+                    }
+                  }
+                }
+              },
+              {
+                "$state": {
+                  "store": "appState"
+                },
+                "meta": {
+                  "alias": null,
+                  "disabled": false,
+                  "index": "935aa520-4b57-11e9-9443-f9d28761667b",
+                  "key": "operation",
+                  "negate": false,
+                  "params": {
+                    "query": "phrase",
+                    "type": "phrase"
+                  },
+                  "type": "phrase",
+                  "value": "phrase"
+                },
+                "query": {
+                  "match": {
+                    "operation": {
+                      "query": "phrase",
+                      "type": "phrase"
+                    }
+                  }
+                }
+              }
+            ],
+            "index": "935aa520-4b57-11e9-9443-f9d28761667b",
+            "query": {
+              "language": "kuery",
+              "query": ""
+            }
+          }
+        },
+        "title": "pmc-phrase-latency",
+        "uiStateJSON": {},
+        "version": 1,
+        "visState": {
+          "aggs": [
+            {
+              "enabled": true,
+              "id": "2",
+              "params": {
+                "customInterval": "2h",
+                "extended_bounds": {},
+                "field": "trial-timestamp",
+                "interval": "auto",
+                "min_doc_count": 1
+              },
+              "schema": "segment",
+              "type": "date_histogram"
+            },
+            {
+              "enabled": true,
+              "id": "4",
+              "params": {
+                "customLabel": "99th percentile",
+                "field": "value.99_0"
+              },
+              "schema": "metric",
+              "type": "avg"
+            },
+            {
+              "enabled": true,
+              "id": "3",
+              "params": {
+                "customLabel": "90th percentile",
+                "field": "value.90_0"
+              },
+              "schema": "metric",
+              "type": "avg"
+            },
+            {
+              "enabled": true,
+              "id": "1",
+              "params": {
+                "customLabel": "50th percentile",
+                "field": "value.50_0"
+              },
+              "schema": "metric",
+              "type": "avg"
+            }
+          ],
+          "params": {
+            "addLegend": true,
+            "addTimeMarker": false,
+            "addTooltip": true,
+            "categoryAxes": [
+              {
+                "id": "CategoryAxis-1",
+                "labels": {
+                  "filter": true,
+                  "show": true,
+                  "truncate": 100
+                },
+                "position": "bottom",
+                "scale": {
+                  "type": "linear"
+                },
+                "show": true,
+                "style": {},
+                "title": {},
+                "type": "category"
+              }
+            ],
+            "grid": {
+              "categoryLines": true,
+              "style": {
+                "color": "#eee"
+              },
+              "valueAxis": "ValueAxis-1"
+            },
+            "legendPosition": "right",
+            "seriesParams": [
+              {
+                "data": {
+                  "id": "4",
+                  "label": "99th percentile"
+                },
+                "drawLinesBetweenPoints": true,
+                "interpolate": "linear",
+                "mode": "normal",
+                "show": true,
+                "showCircles": true,
+                "type": "area",
+                "valueAxis": "ValueAxis-1"
+              },
+              {
+                "data": {
+                  "id": "3",
+                  "label": "90th percentile"
+                },
+                "drawLinesBetweenPoints": true,
+                "interpolate": "linear",
+                "mode": "normal",
+                "show": true,
+                "showCircles": true,
+                "type": "area",
+                "valueAxis": "ValueAxis-1"
+              },
+              {
+                "data": {
+                  "id": "1",
+                  "label": "50th percentile"
+                },
+                "drawLinesBetweenPoints": true,
+                "interpolate": "linear",
+                "mode": "normal",
+                "show": "true",
+                "showCircles": true,
+                "type": "area",
+                "valueAxis": "ValueAxis-1"
+              }
+            ],
+            "times": [],
+            "type": "area",
+            "valueAxes": [
+              {
+                "id": "ValueAxis-1",
+                "labels": {
+                  "filter": false,
+                  "rotate": 0,
+                  "show": true,
+                  "truncate": 100
+                },
+                "name": "LeftAxis-1",
+                "position": "left",
+                "scale": {
+                  "mode": "normal",
+                  "type": "linear"
+                },
+                "show": true,
+                "style": {},
+                "title": {
+                  "text": "seconds"
+                },
+                "type": "value"
+              }
+            ]
+          },
+          "title": "pmc-phrase-latency",
+          "type": "area"
+        }
+      },
+      "id": "694f9e80-4b60-11e9-9443-f9d28761667b",
+      "type": "visualization",
+      "updated_at": "2019-03-21T01:37:19.475Z",
+      "version": 6
+    },
+    {
+      "attributes": {
+        "description": "",
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": {
+            "filter": [
+              {
+                "$state": {
+                  "store": "appState"
+                },
+                "meta": {
+                  "alias": null,
+                  "disabled": false,
+                  "index": "935aa520-4b57-11e9-9443-f9d28761667b",
+                  "key": "name",
+                  "negate": false,
+                  "params": {
+                    "query": "latency",
+                    "type": "phrase"
+                  },
+                  "type": "phrase",
+                  "value": "latency"
+                },
+                "query": {
+                  "match": {
+                    "name": {
+                      "query": "latency",
+                      "type": "phrase"
+                    }
+                  }
+                }
+              },
+              {
+                "$state": {
+                  "store": "appState"
+                },
+                "meta": {
+                  "alias": null,
+                  "disabled": false,
+                  "index": "935aa520-4b57-11e9-9443-f9d28761667b",
+                  "key": "operation",
+                  "negate": false,
+                  "params": {
+                    "query": "term",
+                    "type": "phrase"
+                  },
+                  "type": "phrase",
+                  "value": "term"
+                },
+                "query": {
+                  "match": {
+                    "operation": {
+                      "query": "term",
+                      "type": "phrase"
+                    }
+                  }
+                }
+              }
+            ],
+            "index": "935aa520-4b57-11e9-9443-f9d28761667b",
+            "query": {
+              "language": "kuery",
+              "query": ""
+            }
+          }
+        },
+        "title": "pmc-term-latency",
+        "uiStateJSON": {},
+        "version": 1,
+        "visState": {
+          "aggs": [
+            {
+              "enabled": true,
+              "id": "2",
+              "params": {
+                "customInterval": "2h",
+                "extended_bounds": {},
+                "field": "trial-timestamp",
+                "interval": "auto",
+                "min_doc_count": 1
+              },
+              "schema": "segment",
+              "type": "date_histogram"
+            },
+            {
+              "enabled": true,
+              "id": "4",
+              "params": {
+                "customLabel": "99th percentile",
+                "field": "value.99_0"
+              },
+              "schema": "metric",
+              "type": "avg"
+            },
+            {
+              "enabled": true,
+              "id": "3",
+              "params": {
+                "customLabel": "90th percentile",
+                "field": "value.90_0"
+              },
+              "schema": "metric",
+              "type": "avg"
+            },
+            {
+              "enabled": true,
+              "id": "1",
+              "params": {
+                "customLabel": "50th percentile",
+                "field": "value.50_0"
+              },
+              "schema": "metric",
+              "type": "avg"
+            }
+          ],
+          "params": {
+            "addLegend": true,
+            "addTimeMarker": false,
+            "addTooltip": true,
+            "categoryAxes": [
+              {
+                "id": "CategoryAxis-1",
+                "labels": {
+                  "filter": true,
+                  "show": true,
+                  "truncate": 100
+                },
+                "position": "bottom",
+                "scale": {
+                  "type": "linear"
+                },
+                "show": true,
+                "style": {},
+                "title": {},
+                "type": "category"
+              }
+            ],
+            "grid": {
+              "categoryLines": true,
+              "style": {
+                "color": "#eee"
+              },
+              "valueAxis": "ValueAxis-1"
+            },
+            "legendPosition": "right",
+            "seriesParams": [
+              {
+                "data": {
+                  "id": "4",
+                  "label": "99th percentile"
+                },
+                "drawLinesBetweenPoints": true,
+                "interpolate": "linear",
+                "mode": "normal",
+                "show": true,
+                "showCircles": true,
+                "type": "area",
+                "valueAxis": "ValueAxis-1"
+              },
+              {
+                "data": {
+                  "id": "3",
+                  "label": "90th percentile"
+                },
+                "drawLinesBetweenPoints": true,
+                "interpolate": "linear",
+                "mode": "normal",
+                "show": true,
+                "showCircles": true,
+                "type": "area",
+                "valueAxis": "ValueAxis-1"
+              },
+              {
+                "data": {
+                  "id": "1",
+                  "label": "50th percentile"
+                },
+                "drawLinesBetweenPoints": true,
+                "interpolate": "linear",
+                "mode": "normal",
+                "show": "true",
+                "showCircles": true,
+                "type": "area",
+                "valueAxis": "ValueAxis-1"
+              }
+            ],
+            "times": [],
+            "type": "area",
+            "valueAxes": [
+              {
+                "id": "ValueAxis-1",
+                "labels": {
+                  "filter": false,
+                  "rotate": 0,
+                  "show": true,
+                  "truncate": 100
+                },
+                "name": "LeftAxis-1",
+                "position": "left",
+                "scale": {
+                  "mode": "normal",
+                  "type": "linear"
+                },
+                "show": true,
+                "style": {},
+                "title": {
+                  "text": "seconds"
+                },
+                "type": "value"
+              }
+            ]
+          },
+          "title": "pmc-term-latency",
+          "type": "area"
+        }
+      },
+      "id": "76435aa0-4b60-11e9-9443-f9d28761667b",
+      "type": "visualization",
+      "updated_at": "2019-03-21T01:38:32.179Z",
+      "version": 5
+    },
+    {
+      "attributes": {
+        "description": "",
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": {
+            "filter": [
+              {
+                "$state": {
+                  "store": "appState"
+                },
+                "meta": {
+                  "alias": null,
+                  "disabled": false,
+                  "index": "935aa520-4b57-11e9-9443-f9d28761667b",
+                  "key": "name",
+                  "negate": false,
+                  "params": {
+                    "query": "latency",
+                    "type": "phrase"
+                  },
+                  "type": "phrase",
+                  "value": "latency"
+                },
+                "query": {
+                  "match": {
+                    "name": {
+                      "query": "latency",
+                      "type": "phrase"
+                    }
+                  }
+                }
+              },
+              {
+                "$state": {
+                  "store": "appState"
+                },
+                "meta": {
+                  "alias": null,
+                  "disabled": false,
+                  "index": "935aa520-4b57-11e9-9443-f9d28761667b",
+                  "key": "operation",
+                  "negate": false,
+                  "params": {
+                    "query": "scroll",
+                    "type": "phrase"
+                  },
+                  "type": "phrase",
+                  "value": "scroll"
+                },
+                "query": {
+                  "match": {
+                    "operation": {
+                      "query": "scroll",
+                      "type": "phrase"
+                    }
+                  }
+                }
+              }
+            ],
+            "index": "935aa520-4b57-11e9-9443-f9d28761667b",
+            "query": {
+              "language": "kuery",
+              "query": ""
+            }
+          }
+        },
+        "title": "pmc-scroll-latency",
+        "uiStateJSON": {},
+        "version": 1,
+        "visState": {
+          "aggs": [
+            {
+              "enabled": true,
+              "id": "2",
+              "params": {
+                "customInterval": "2h",
+                "extended_bounds": {},
+                "field": "trial-timestamp",
+                "interval": "auto",
+                "min_doc_count": 1
+              },
+              "schema": "segment",
+              "type": "date_histogram"
+            },
+            {
+              "enabled": true,
+              "id": "4",
+              "params": {
+                "customLabel": "99th percentile",
+                "field": "value.99_0"
+              },
+              "schema": "metric",
+              "type": "avg"
+            },
+            {
+              "enabled": true,
+              "id": "3",
+              "params": {
+                "customLabel": "90th percentile",
+                "field": "value.90_0"
+              },
+              "schema": "metric",
+              "type": "avg"
+            },
+            {
+              "enabled": true,
+              "id": "1",
+              "params": {
+                "customLabel": "50th percentile",
+                "field": "value.50_0"
+              },
+              "schema": "metric",
+              "type": "avg"
+            }
+          ],
+          "params": {
+            "addLegend": true,
+            "addTimeMarker": false,
+            "addTooltip": true,
+            "categoryAxes": [
+              {
+                "id": "CategoryAxis-1",
+                "labels": {
+                  "filter": true,
+                  "show": true,
+                  "truncate": 100
+                },
+                "position": "bottom",
+                "scale": {
+                  "type": "linear"
+                },
+                "show": true,
+                "style": {},
+                "title": {},
+                "type": "category"
+              }
+            ],
+            "grid": {
+              "categoryLines": true,
+              "style": {
+                "color": "#eee"
+              },
+              "valueAxis": "ValueAxis-1"
+            },
+            "legendPosition": "right",
+            "seriesParams": [
+              {
+                "data": {
+                  "id": "4",
+                  "label": "99th percentile"
+                },
+                "drawLinesBetweenPoints": true,
+                "interpolate": "linear",
+                "mode": "normal",
+                "show": true,
+                "showCircles": true,
+                "type": "area",
+                "valueAxis": "ValueAxis-1"
+              },
+              {
+                "data": {
+                  "id": "3",
+                  "label": "90th percentile"
+                },
+                "drawLinesBetweenPoints": true,
+                "interpolate": "linear",
+                "mode": "normal",
+                "show": true,
+                "showCircles": true,
+                "type": "area",
+                "valueAxis": "ValueAxis-1"
+              },
+              {
+                "data": {
+                  "id": "1",
+                  "label": "50th percentile"
+                },
+                "drawLinesBetweenPoints": true,
+                "interpolate": "linear",
+                "mode": "normal",
+                "show": "true",
+                "showCircles": true,
+                "type": "area",
+                "valueAxis": "ValueAxis-1"
+              }
+            ],
+            "times": [],
+            "type": "area",
+            "valueAxes": [
+              {
+                "id": "ValueAxis-1",
+                "labels": {
+                  "filter": false,
+                  "rotate": 0,
+                  "show": true,
+                  "truncate": 100
+                },
+                "name": "LeftAxis-1",
+                "position": "left",
+                "scale": {
+                  "mode": "normal",
+                  "type": "linear"
+                },
+                "show": true,
+                "style": {},
+                "title": {
+                  "text": "seconds"
+                },
+                "type": "value"
+              }
+            ]
+          },
+          "title": "pmc-scroll-latency",
+          "type": "area"
+        }
+      },
+      "id": "9849d570-4b60-11e9-9443-f9d28761667b",
+      "type": "visualization",
+      "updated_at": "2019-03-21T01:38:07.050Z",
+      "version": 5
+    },
+    {
+      "attributes": {
+        "description": "",
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": {
+            "filter": [],
+            "index": "935aa520-4b57-11e9-9443-f9d28761667b",
+            "query": {
+              "language": "kuery",
+              "query": ""
+            }
+          }
+        },
+        "title": "pmc_total_time",
+        "uiStateJSON": {},
+        "version": 1,
+        "visState": {
+          "aggs": [
+            {
+              "enabled": true,
+              "id": "1",
+              "params": {
+                "customLabel": "total time",
+                "field": "value.single"
+              },
+              "schema": "metric",
+              "type": "cardinality"
+            },
+            {
+              "enabled": true,
+              "id": "2",
+              "params": {
+                "customInterval": "2h",
+                "extended_bounds": {},
+                "field": "trial-timestamp",
+                "interval": "auto",
+                "min_doc_count": 1
+              },
+              "schema": "segment",
+              "type": "date_histogram"
+            }
+          ],
+          "params": {
+            "addLegend": true,
+            "addTimeMarker": false,
+            "addTooltip": true,
+            "categoryAxes": [
+              {
+                "id": "CategoryAxis-1",
+                "labels": {
+                  "show": true,
+                  "truncate": 100
+                },
+                "position": "bottom",
+                "scale": {
+                  "type": "linear"
+                },
+                "show": true,
+                "style": {},
+                "title": {},
+                "type": "category"
+              }
+            ],
+            "grid": {
+              "categoryLines": false,
+              "style": {
+                "color": "#eee"
+              }
+            },
+            "legendPosition": "right",
+            "seriesParams": [
+              {
+                "data": {
+                  "id": "1",
+                  "label": "total time"
+                },
+                "drawLinesBetweenPoints": true,
+                "interpolate": "linear",
+                "lineWidth": 5,
+                "mode": "normal",
+                "show": "true",
+                "showCircles": false,
+                "type": "line",
+                "valueAxis": "ValueAxis-1"
+              }
+            ],
+            "times": [],
+            "type": "area",
+            "valueAxes": [
+              {
+                "id": "ValueAxis-1",
+                "labels": {
+                  "filter": false,
+                  "rotate": 0,
+                  "show": true,
+                  "truncate": 100
+                },
+                "name": "LeftAxis-1",
+                "position": "left",
+                "scale": {
+                  "mode": "normal",
+                  "type": "linear"
+                },
+                "show": true,
+                "style": {},
+                "title": {
+                  "text": "total time in mitutes"
+                },
+                "type": "value"
+              }
+            ]
+          },
+          "title": "pmc_total_time",
+          "type": "area"
+        }
+      },
+      "id": "55363d80-4b6c-11e9-9443-f9d28761667b",
+      "type": "visualization",
+      "updated_at": "2019-03-21T00:00:26.968Z",
+      "version": 1
+    },
+    {
+      "attributes": {
+        "description": "",
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": {
+            "filter": [],
+            "query": {
+              "language": "kuery",
+              "query": ""
+            }
+          }
+        },
+        "title": "rally_races_tags",
+        "uiStateJSON": {},
+        "version": 1,
+        "visState": {
+          "aggs": [],
+          "params": {
+            "controls": [
+              {
+                "fieldName": "user-tags.k8s-elk-client",
+                "id": "1553126523536",
+                "indexPattern": "935aa520-4b57-11e9-9443-f9d28761667b",
+                "label": "rally races",
+                "options": {
+                  "dynamicOptions": true,
+                  "multiselect": true,
+                  "order": "desc",
+                  "size": 5,
+                  "type": "terms"
+                },
+                "parent": "",
+                "type": "list"
+              }
+            ],
+            "pinFilters": false,
+            "updateFiltersOnChange": false,
+            "useTimeFilter": false
+          },
+          "title": "rally_races_tags",
+          "type": "input_control_vis"
+        }
+      },
+      "id": "b435b2c0-4b6c-11e9-9443-f9d28761667b",
+      "type": "visualization",
+      "updated_at": "2019-03-21T00:03:06.348Z",
+      "version": 1
+    },
+    {
+      "attributes": {
+        "description": "",
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": {
+            "filter": [
+              {
+                "$state": {
+                  "store": "appState"
+                },
+                "meta": {
+                  "alias": null,
+                  "disabled": false,
+                  "index": "935aa520-4b57-11e9-9443-f9d28761667b",
+                  "key": "name",
+                  "negate": false,
+                  "params": {
+                    "query": "total_time",
+                    "type": "phrase"
+                  },
+                  "type": "phrase",
+                  "value": "total_time"
+                },
+                "query": {
+                  "match": {
+                    "name": {
+                      "query": "total_time",
+                      "type": "phrase"
+                    }
+                  }
+                }
+              }
+            ],
+            "index": "935aa520-4b57-11e9-9443-f9d28761667b",
+            "query": {
+              "language": "kuery",
+              "query": ""
+            }
+          }
+        },
+        "title": "time_left",
+        "uiStateJSON": {
+          "vis": {
+            "colors": {
+              "0 - 100": "#E24D42"
+            },
+            "defaultColors": {
+              "0 - 100": "rgb(0,104,55)"
+            }
+          }
+        },
+        "version": 1,
+        "visState": {
+          "aggs": [
+            {
+              "enabled": true,
+              "id": "1",
+              "params": {
+                "customLabel": "100 %  =~ 60 minutes",
+                "field": "value.single"
+              },
+              "schema": "metric",
+              "type": "avg"
+            }
+          ],
+          "params": {
+            "addLegend": false,
+            "addTooltip": true,
+            "gauge": {
+              "backStyle": "Full",
+              "colorSchema": "Green to Red",
+              "colorsRange": [
+                {
+                  "from": 0,
+                  "to": 60000000
+                }
+              ],
+              "extendRange": true,
+              "gaugeColorMode": "Labels",
+              "gaugeStyle": "Full",
+              "gaugeType": "Arc",
+              "invertColors": false,
+              "labels": {
+                "color": "black",
+                "show": true
+              },
+              "orientation": "vertical",
+              "percentageMode": true,
+              "scale": {
+                "color": "#333",
+                "labels": false,
+                "show": true
+              },
+              "style": {
+                "bgColor": false,
+                "bgFill": "#eee",
+                "bgMask": false,
+                "bgWidth": 0.9,
+                "fontSize": 60,
+                "labelColor": true,
+                "mask": false,
+                "maskBars": 50,
+                "subText": "",
+                "width": 0.9
+              },
+              "type": "meter",
+              "verticalSplit": false
+            },
+            "isDisplayWarning": false,
+            "type": "gauge"
+          },
+          "title": "time_left",
+          "type": "gauge"
+        }
+      },
+      "id": "d34c2370-4b75-11e9-9443-f9d28761667b",
+      "type": "visualization",
+      "updated_at": "2019-03-21T01:11:23.312Z",
+      "version": 3
+    },
+    {
+      "attributes": {
+        "description": "",
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": {
+            "filter": [
+              {
+                "$state": {
+                  "store": "appState"
+                },
+                "meta": {
+                  "alias": null,
+                  "disabled": false,
+                  "index": "935aa520-4b57-11e9-9443-f9d28761667b",
+                  "key": "name",
+                  "negate": false,
+                  "params": {
+                    "query": "store_size",
+                    "type": "phrase"
+                  },
+                  "type": "phrase",
+                  "value": "store_size"
+                },
+                "query": {
+                  "match": {
+                    "name": {
+                      "query": "store_size",
+                      "type": "phrase"
+                    }
+                  }
+                }
+              }
+            ],
+            "index": "935aa520-4b57-11e9-9443-f9d28761667b",
+            "query": {
+              "language": "kuery",
+              "query": ""
+            }
+          }
+        },
+        "title": "elasticsearch_storage_size",
+        "uiStateJSON": {},
+        "version": 1,
+        "visState": {
+          "aggs": [
+            {
+              "enabled": true,
+              "id": "1",
+              "params": {
+                "customLabel": "storage size",
+                "field": "value.single"
+              },
+              "schema": "metric",
+              "type": "avg"
+            },
+            {
+              "enabled": true,
+              "id": "2",
+              "params": {
+                "customInterval": "2h",
+                "extended_bounds": {},
+                "field": "trial-timestamp",
+                "interval": "auto",
+                "min_doc_count": 1
+              },
+              "schema": "segment",
+              "type": "date_histogram"
+            }
+          ],
+          "params": {
+            "addLegend": true,
+            "addTimeMarker": false,
+            "addTooltip": true,
+            "categoryAxes": [
+              {
+                "id": "CategoryAxis-1",
+                "labels": {
+                  "show": true,
+                  "truncate": 100
+                },
+                "position": "bottom",
+                "scale": {
+                  "type": "linear"
+                },
+                "show": true,
+                "style": {},
+                "title": {},
+                "type": "category"
+              }
+            ],
+            "grid": {
+              "categoryLines": false,
+              "style": {
+                "color": "#eee"
+              }
+            },
+            "legendPosition": "right",
+            "seriesParams": [
+              {
+                "data": {
+                  "id": "1",
+                  "label": "storage size"
+                },
+                "drawLinesBetweenPoints": true,
+                "interpolate": "cardinal",
+                "mode": "normal",
+                "show": "true",
+                "showCircles": true,
+                "type": "area",
+                "valueAxis": "ValueAxis-1"
+              }
+            ],
+            "times": [],
+            "type": "area",
+            "valueAxes": [
+              {
+                "id": "ValueAxis-1",
+                "labels": {
+                  "filter": false,
+                  "rotate": 0,
+                  "show": false,
+                  "truncate": 100
+                },
+                "name": "LeftAxis-1",
+                "position": "left",
+                "scale": {
+                  "mode": "normal",
+                  "type": "linear"
+                },
+                "show": true,
+                "style": {},
+                "title": {
+                  "text": "storage size"
+                },
+                "type": "value"
+              }
+            ]
+          },
+          "title": "elasticsearch_storage_size",
+          "type": "area"
+        }
+      },
+      "id": "de1df4e0-4bc0-11e9-9443-f9d28761667b",
+      "type": "visualization",
+      "updated_at": "2019-03-21T10:05:34.382Z",
+      "version": 1
+    },
+    {
+      "attributes": {
+        "description": "",
+        "hits": 0,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": {
+            "filter": [],
+            "query": {
+              "language": "kuery",
+              "query": ""
+            }
+          }
+        },
+        "optionsJSON": {
+          "darkTheme": false,
+          "hidePanelTitles": false,
+          "useMargins": true
+        },
+        "panelsJSON": [
+          {
+            "embeddableConfig": {},
+            "gridData": {
+              "h": 9,
+              "i": "2",
+              "w": 24,
+              "x": 24,
+              "y": 9
+            },
+            "id": "ef6b9e40-4b5d-11e9-9443-f9d28761667b",
+            "panelIndex": "2",
+            "type": "visualization",
+            "version": "6.4.1"
+          },
+          {
+            "embeddableConfig": {},
+            "gridData": {
+              "h": 9,
+              "i": "3",
+              "w": 24,
+              "x": 0,
+              "y": 9
+            },
+            "id": "694f9e80-4b60-11e9-9443-f9d28761667b",
+            "panelIndex": "3",
+            "type": "visualization",
+            "version": "6.4.1"
+          },
+          {
+            "embeddableConfig": {},
+            "gridData": {
+              "h": 9,
+              "i": "4",
+              "w": 24,
+              "x": 24,
+              "y": 18
+            },
+            "id": "76435aa0-4b60-11e9-9443-f9d28761667b",
+            "panelIndex": "4",
+            "type": "visualization",
+            "version": "6.4.1"
+          },
+          {
+            "embeddableConfig": {},
+            "gridData": {
+              "h": 9,
+              "i": "5",
+              "w": 24,
+              "x": 0,
+              "y": 18
+            },
+            "id": "9849d570-4b60-11e9-9443-f9d28761667b",
+            "panelIndex": "5",
+            "type": "visualization",
+            "version": "6.4.1"
+          },
+          {
+            "embeddableConfig": {
+              "vis": {
+                "legendOpen": false
+              }
+            },
+            "gridData": {
+              "h": 9,
+              "i": "6",
+              "w": 11,
+              "x": 13,
+              "y": 0
+            },
+            "id": "55363d80-4b6c-11e9-9443-f9d28761667b",
+            "panelIndex": "6",
+            "type": "visualization",
+            "version": "6.4.1"
+          },
+          {
+            "embeddableConfig": {},
+            "gridData": {
+              "h": 9,
+              "i": "7",
+              "w": 13,
+              "x": 0,
+              "y": 0
+            },
+            "id": "b435b2c0-4b6c-11e9-9443-f9d28761667b",
+            "panelIndex": "7",
+            "type": "visualization",
+            "version": "6.4.1"
+          },
+          {
+            "embeddableConfig": {},
+            "gridData": {
+              "h": 9,
+              "i": "8",
+              "w": 11,
+              "x": 37,
+              "y": 0
+            },
+            "id": "d34c2370-4b75-11e9-9443-f9d28761667b",
+            "panelIndex": "8",
+            "type": "visualization",
+            "version": "6.4.1"
+          },
+          {
+            "embeddableConfig": {},
+            "gridData": {
+              "h": 9,
+              "i": "9",
+              "w": 13,
+              "x": 24,
+              "y": 0
+            },
+            "id": "de1df4e0-4bc0-11e9-9443-f9d28761667b",
+            "panelIndex": "9",
+            "type": "visualization",
+            "version": "6.4.1"
+          }
+        ],
+        "timeRestore": false,
+        "title": "rally-pmc",
+        "version": 1
+      },
+      "id": "e02c8b30-4b60-11e9-9443-f9d28761667b",
+      "type": "dashboard",
+      "updated_at": "2019-04-22T09:54:38.872Z",
+      "version": 11
+    }
+  ],
+  "version": "6.4.1"
+}
