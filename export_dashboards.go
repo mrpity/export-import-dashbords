@@ -84,6 +84,7 @@ func main() {
 		if err != nil {
 			log.Fatalf("Failed to export dashboards from YML file: %v", err)
 		}
+		debungFunc(client, *ymlFile)
 		return
 	}
 
@@ -124,6 +125,17 @@ func exportSingleDashboard(client *kibana.Client, dashboard, output string) erro
 	err = ioutil.WriteFile(output, []byte(result.StringToPrint()), dashboards.OutputPermission)
 	if err != nil {
 		return fmt.Errorf("failed to save the dashboards: %+v", err)
+	}
+	return nil
+}
+
+func debungFunc(client *kibana.Client, ymlFile string) error {
+	results, info, err := dashboards.ExportAllFromYml(client, ymlFile)
+	if err != nil {
+		return err
+	}
+	for i, r := range results {
+		log.Printf("id=%s, name=%s\n", info.Dashboards[i].ID, info.Dashboards[i].File)
 	}
 	return nil
 }

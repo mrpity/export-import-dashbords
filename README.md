@@ -21,3 +21,12 @@ helpful links:
 - https://github.com/elastic/beats/issues/4409
 - https://github.com/elastic/beats/tree/master/dev-tools/cmd/dashboards (or it's better to use branch: 6.4)
 - https://github.com/elastic/beats/tree/master/libbeat/dashboards (or it's better to use branch: 6.4)
+
+
+
+Another method (using curl):
+```
+1. Get id of dashbord: ID_DASH
+2. curl -k -XGET "http://localhost:5601/api/kibana/dashboards/export?dashboard=${ID_DASH}" > export.json
+3. curl -k -XPOST -H "Content-Type: application/json" -H "kbn-xsrf: true" -d @export.json http://localhost:5601/api/kibana/dashboards/import
+```
