@@ -18,6 +18,7 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
 	"io/ioutil"
@@ -26,6 +27,7 @@ import (
 	"path/filepath"
 	"time"
 
+	"github.com/elastic/beats/libbeat/common"
 	"github.com/elastic/beats/libbeat/dashboards"
 	"github.com/elastic/beats/libbeat/kibana"
 )
@@ -150,4 +152,36 @@ func debungFunc(client *kibana.Client, ymlFile string) error {
 	// }
 	// logp.Info("Kibana dashboards successfully loaded.")
 
+}
+
+// ImportDashboard imports the dashboard file
+func ImportDashboard(file string, client *kibana.Client, ymlFile string) error {
+	params := url.Values{}
+	params.Set("force", "true")            //overwrite the existing dashboards
+	params.Add("exclude", "index-pattern") //don't import the index pattern from the dashboards
+
+	// read json file
+	reader, err := ioutil.ReadFile(file)
+	if err != nil {
+		return fmt.Errorf("fail to read dashboard from file %s: %v", file, err)
+	}
+	var content common.MapStr
+	err = json.Unmarshal(reader, &content)
+	if err != nil {
+		return fmt.Errorf("fail to unmarshal the dashboard content from file %s: %v", file, err)
+	}
+
+	results, info, err := dashboards.ExportAllFromYml(client, ymlFile)
+	if err != nil {
+		return err
+	}
+	for i, r := range results {
+		log.Printf("id=%s, name=%s\n", info.Dashboards[i].ID, info.Dashboards[i].File)
+		println(r)
+	}
+
+	client.ImportJSON(importAPI, params, "pity.json")
+	return nil
+
+	//return loader.client.ImportJSON(importAPI, params, content)
 }
