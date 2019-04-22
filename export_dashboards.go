@@ -82,11 +82,13 @@ func main() {
 		log.Fatalf("Please specify a dashboard ID (-dashboard) or a manifest file (-yml)")
 	}
 
-	debungFunc(client, *ymlFile)
-	ImportDashboard("pity.json", client, *ymlFile)
+	println("start custom flow")
+	//debungFunc(client, *ymlFile)
+	ImportDashboard("pity-GET.json", client, *ymlFile)
 	if err != nil {
 		log.Fatalf("Failed to import the dashboard: %v", err)
 	}
+	println("stop everything")
 	os.Exit(14)
 
 	if len(*ymlFile) > 0 {
@@ -179,17 +181,12 @@ func ImportDashboard(file string, client *kibana.Client, ymlFile string) error {
 		return fmt.Errorf("fail to unmarshal the dashboard content from file %s: %v", file, err)
 	}
 
-	results, info, err := dashboards.ExportAllFromYml(client, ymlFile)
+	println("START IMPORT")
+	err = client.ImportJSON(importAPI, params, content)
 	if err != nil {
-		return err
+		return fmt.Errorf(" %s: %v", content, err)
 	}
-	for i, r := range results {
-		log.Printf("id=%s, name=%s\n", info.Dashboards[i].ID, info.Dashboards[i].File)
-		println(r)
-	}
-
-	println("TROLOLOL")
-	client.ImportJSON(importAPI, params, content)
+	println("STOP IMPORT")
 	return nil
 
 	//return loader.client.ImportJSON(importAPI, params, content)
