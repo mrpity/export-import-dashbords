@@ -5,20 +5,10 @@
         "description": "",
         "hits": 0,
         "kibanaSavedObjectMeta": {
-          "searchSourceJSON": {
-            "filter": [],
-            "query": {
-              "language": "kuery",
-              "query": ""
-            }
-          }
+          "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
         },
-        "optionsJSON": {
-          "darkTheme": false,
-          "hidePanelTitles": false,
-          "useMargins": true
-        },
-        "panelsJSON": [],
+        "optionsJSON": "{\"darkTheme\":false,\"useMargins\":true,\"hidePanelTitles\":false}",
+        "panelsJSON": "[]",
         "timeRestore": false,
         "title": "pity",
         "version": 1

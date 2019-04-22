@@ -106,7 +106,7 @@ func exportDashboardsFromYML(client *kibana.Client, ymlFile string) error {
 	}
 	for i, r := range results {
 		log.Printf("id=%s, name=%s\n", info.Dashboards[i].ID, info.Dashboards[i].File)
-		r = dashboards.DecodeExported(r)
+		//r = dashboards.DecodeExported(r)
 		err = dashboards.SaveToFile(r, info.Dashboards[i].File, filepath.Dir(ymlFile), client.GetVersion())
 		if err != nil {
 			return err
@@ -120,7 +120,7 @@ func exportSingleDashboard(client *kibana.Client, dashboard, output string) erro
 	if err != nil {
 		return fmt.Errorf("failed to export the dashboard: %+v", err)
 	}
-	result = dashboards.DecodeExported(result)
+	//result = dashboards.DecodeExported(result)
 	err = ioutil.WriteFile(output, []byte(result.StringToPrint()), dashboards.OutputPermission)
 	if err != nil {
 		return fmt.Errorf("failed to save the dashboards: %+v", err)
