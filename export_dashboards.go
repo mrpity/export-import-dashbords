@@ -24,6 +24,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/url"
+	"os"
 	"path/filepath"
 	"time"
 
@@ -81,12 +82,18 @@ func main() {
 		log.Fatalf("Please specify a dashboard ID (-dashboard) or a manifest file (-yml)")
 	}
 
+	debungFunc(client, *ymlFile)
+	ImportDashboard("pity.json", client, *ymlFile)
+	if err != nil {
+		log.Fatalf("Failed to import the dashboard: %v", err)
+	}
+	os.Exit(14)
+
 	if len(*ymlFile) > 0 {
 		err = exportDashboardsFromYML(client, *ymlFile)
 		if err != nil {
 			log.Fatalf("Failed to export dashboards from YML file: %v", err)
 		}
-		debungFunc(client, *ymlFile)
 		return
 	}
 
@@ -156,6 +163,7 @@ func debungFunc(client *kibana.Client, ymlFile string) error {
 
 // ImportDashboard imports the dashboard file
 func ImportDashboard(file string, client *kibana.Client, ymlFile string) error {
+	var importAPI = "/api/kibana/dashboards/import"
 	params := url.Values{}
 	params.Set("force", "true")            //overwrite the existing dashboards
 	params.Add("exclude", "index-pattern") //don't import the index pattern from the dashboards
@@ -180,7 +188,8 @@ func ImportDashboard(file string, client *kibana.Client, ymlFile string) error {
 		println(r)
 	}
 
-	client.ImportJSON(importAPI, params, "pity.json")
+	println("TROLOLOL")
+	client.ImportJSON(importAPI, params, content)
 	return nil
 
 	//return loader.client.ImportJSON(importAPI, params, content)
