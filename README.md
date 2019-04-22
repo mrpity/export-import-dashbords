@@ -8,7 +8,7 @@ The dashboard ID is available in the dashboard URL. For example, in case the das
 2. Run: 
 > go get -v
 
-> go run main.go -yml dashbords.yaml
+> go run export_dashboards.go -yml dashbords.yaml
 ```
 Results will be in ./_meta/kibana/6/dashbord/ folder.
 If dashboard already exist, it will be updated.
@@ -17,4 +17,7 @@ If dashboard already exist, it will be updated.
 
 helpful links:
 - https://www.elastic.co/guide/en/beats/devguide/6.7/export-dashboards.html
-- https://github.com/elastic/beats/tree/master/dev-tools/cmd/dashboards
+- https://github.com/elastic/kibana/pull/10858
+- https://github.com/elastic/beats/issues/4409
+- https://github.com/elastic/beats/tree/master/dev-tools/cmd/dashboards (or it's better to use branch: 6.4)
+- https://github.com/elastic/beats/tree/master/libbeat/dashboards (or it's better to use branch: 6.4)

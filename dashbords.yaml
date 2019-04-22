@@ -1,5 +1,7 @@
 dashboards:
-- id: e02c8b30-4b60-11e9-9443-f9d28761667b
-  file: rally-pmc.json
+# - id: e02c8b30-4b60-11e9-9443-f9d28761667b
+#   file: rally-pmc.json
 # - id: 624c77a0-03a0-11e9-b834-57e3ec1bc459
 #   file: e2e.json
+- id: 574c5c80-64f8-11e9-8dde-1182669cc01a
+  file: pity.json
