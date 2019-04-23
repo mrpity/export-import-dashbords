@@ -1,4 +1,6 @@
 
+**Export dashbords:**
+#
 
 1. Generate/adjust dashbords.yaml
 ```
@@ -10,11 +12,19 @@ The dashboard ID is available in the dashboard URL. For example, in case the das
 
 > go run export_dashboards.go -yml dashbords.yaml
 ```
-Results will be in ./_meta/kibana/6/dashbord/ folder.
+Results will be in ./_meta/kibana/6/dashbord/* folder.
 If dashboard already exist, it will be updated.
 ```
 
 
+**Import dashbord (example for export.json):**
+#
+2. Run: 
+> go get -v
+
+> go run export_dashboards.go -json _meta/kibana/6/dashboard/export.json
+
+#
 helpful links:
 - https://www.elastic.co/guide/en/beats/devguide/6.7/export-dashboards.html
 - https://github.com/elastic/kibana/pull/10858
@@ -24,7 +34,8 @@ helpful links:
 
 
 
-Another method (using curl):
+**Another method (using curl):**
+#
 ```
 1. Get id of dashbord: ID_DASH
 2. curl -k -XGET "http://localhost:5601/api/kibana/dashboards/export?dashboard=${ID_DASH}" > export.json

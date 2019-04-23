@@ -24,7 +24,6 @@ import (
 	"io/ioutil"
 	"log"
 	"net/url"
-	"os"
 	"path/filepath"
 	"time"
 
@@ -48,6 +47,7 @@ func main() {
 	dashboard := flag.String("dashboard", "", "Dashboard ID")
 	fileOutput := flag.String("output", "output.json", "Output file")
 	ymlFile := flag.String("yml", "", "Path to the module.yml file containing the dashboards")
+	jsonFile := flag.String("json", "", "Path to the json file containing the dashboard")
 	flag.BoolVar(&indexPattern, "indexPattern", false, "include index-pattern in output")
 	flag.BoolVar(&quiet, "quiet", false, "be quiet")
 
@@ -77,25 +77,25 @@ func main() {
 		log.Fatalf("Error while connecting to Kibana: %v", err)
 	}
 
+	if len(*jsonFile) > 0 {
+		err = ImportDashboard(*jsonFile, client)
+		if err != nil {
+			log.Fatalf("Failed to import dashboards from jsonFile file: %v", err)
+		}
+		return
+	}
+
 	if len(*ymlFile) == 0 && len(*dashboard) == 0 {
 		flag.Usage()
 		log.Fatalf("Please specify a dashboard ID (-dashboard) or a manifest file (-yml)")
 	}
-
-	println("start custom flow")
-	//debungFunc(client, *ymlFile)
-	ImportDashboard("pity-GET.json", client, *ymlFile)
-	if err != nil {
-		log.Fatalf("Failed to import the dashboard: %v", err)
-	}
-	println("stop everything")
-	os.Exit(14)
 
 	if len(*ymlFile) > 0 {
 		err = exportDashboardsFromYML(client, *ymlFile)
 		if err != nil {
 			log.Fatalf("Failed to export dashboards from YML file: %v", err)
 		}
+		debungFunc(client, *ymlFile)
 		return
 	}
 
@@ -151,24 +151,14 @@ func debungFunc(client *kibana.Client, ymlFile string) error {
 	}
 	return nil
 
-	// pattern, err := indexPattern.Generate()
-	// if err != nil {
-	// 	return fmt.Errorf("error generating index pattern: %v", err)
-	// }
-	// err = dashboards.ImportDashboards(ctx, b.Info, paths.Resolve(paths.Home, ""), kibanaConfig, b.Config.Dashboards, nil, results)
-	// if err != nil {
-	// 	return errw.Wrap(err, "Error importing Kibana dashboards")
-	// }
-	// logp.Info("Kibana dashboards successfully loaded.")
-
 }
 
-// ImportDashboard imports the dashboard file
-func ImportDashboard(file string, client *kibana.Client, ymlFile string) error {
-	var importAPI = "/api/kibana/dashboards/import"
+func ImportDashboard(file string, client *kibana.Client) error {
+
 	params := url.Values{}
 	params.Set("force", "true")            //overwrite the existing dashboards
 	params.Add("exclude", "index-pattern") //don't import the index pattern from the dashboards
+	var importAPI = "/api/kibana/dashboards/import"
 
 	// read json file
 	reader, err := ioutil.ReadFile(file)
@@ -181,13 +171,10 @@ func ImportDashboard(file string, client *kibana.Client, ymlFile string) error {
 		return fmt.Errorf("fail to unmarshal the dashboard content from file %s: %v", file, err)
 	}
 
-	println("START IMPORT")
 	err = client.ImportJSON(importAPI, params, content)
 	if err != nil {
-		return fmt.Errorf(" %s: %v", content, err)
+		return fmt.Errorf("failed to import the dashboard: %+v", err)
 	}
-	println("STOP IMPORT")
 	return nil
 
-	//return loader.client.ImportJSON(importAPI, params, content)
 }
