@@ -1,4 +1,16 @@
 
+#
+**Pre-requirements:**
+#
+1. Let's assume kibana is accessible on localhost:5601
+
+Example:
+> jx ns jx-staging
+
+> kubectl  port-forward web-kibana-XXXXX 5601:5601
+
+#
+
 **Export dashbords:**
 #
 
@@ -16,7 +28,7 @@ Results will be in ./_meta/kibana/6/dashbord/* folder.
 If dashboard already exist, it will be updated.
 ```
 
-
+#
 **Import dashbord (example for export.json):**
 #
 2. Run: 
@@ -33,7 +45,7 @@ helpful links:
 - https://github.com/elastic/beats/tree/master/libbeat/dashboards (or it's better to use branch: 6.4)
 
 
-
+#
 **Another method (using curl):**
 #
 ```
